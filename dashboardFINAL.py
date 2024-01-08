@@ -217,7 +217,10 @@ def get_date_range(choice):
     elif choice == '2':  # Last 7 Days
         end_date = datetime.now().date()
         start_date = end_date - timedelta(days=7)
-    elif choice == '3':  # Last 24 Hours
+    elif choice == '3':  # Last 3 Days
+        end_date = datetime.now().date()
+        start_date = end_date - timedelta(days=3)
+    elif choice == '4':  # Last 24 Hours
         end_date = datetime.now().date()
         start_date = end_date - timedelta(days=1)
     return start_date, end_date
@@ -262,12 +265,13 @@ def main():
                 print("Options:")
                 print("1. Custom Date Range")
                 print("2. Last 7 Days")
-                print("3. Last 24 Hours")
-                print("4. Group Search")
-                print("5. Exit")
+                print("3. Last 3 Days")
+                print("4. Last 24 Hours")
+                print("5. Group Search")
+                print("6. Exit")
                 choice = input("Choose an option (1-5): ")
 
-                if choice == '5':
+                if choice == '6':
                     print("Exiting program.")
                     break
 
@@ -276,7 +280,7 @@ def main():
 
                 if choice in ['1', '2', '3']:
                     start_date, end_date = get_date_range(choice)
-                elif choice == '4':
+                elif choice == '5':
                     filter_group = input("Enter a keyword to filter by (for both webpage and RSS feeds): ")
 
                 # Fetch and display webpage data
