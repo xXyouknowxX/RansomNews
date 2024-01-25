@@ -258,7 +258,8 @@ def main():
                 "13": "https://www.redhotcyber.com/feed/",
                 "14": "https://www.csirt.gov.it/data/indexer/rss",
                 "15": "https://community.qualys.com/blogs/securitylabs/feeds/posts",
-                "16": "https://thecyberexpress.com/feed/"
+                "16": "https://thecyberexpress.com/feed/",
+                "17": "https://www.guerredirete.it/feed/"
             }
 
             while True:  
@@ -278,7 +279,7 @@ def main():
                 start_date, end_date = None, None
                 filter_group = None
 
-                if choice in ['1', '2', '3']:
+                if choice in ['1', '2', '3', '4']:
                     start_date, end_date = get_date_range(choice)
                 elif choice == '5':
                     filter_group = input("Enter a keyword to filter by (for both webpage and RSS feeds): ")
@@ -298,7 +299,7 @@ def main():
 
 
                 # Apply filters
-                if choice == '4':
+                if choice == '5':
                     # For group search, use the keyword filter
                     filtered_news = search_news_items(all_news_items, filter_group)
                 else:
